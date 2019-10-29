@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="user">
+
+    <select id="selectAllUser" resultType="com.zzy.model.User" parameterType="com.zzy.model.User">
+        select * from user
+    </select>
+
+    <select id="selectById" parameterType="com.zzy.model.User" resultType="com.zzy.model.User">
+        select * from user where id =#{id}
+    </select>
+
+    <update id="updateById" parameterType="com.zzy.model.User">
+        update user set username = #{username}, password =#{password} where id =#{id}
+    </update>
+
+    <delete id="delUser" parameterType="com.zzy.model.User">
+        delete from user  where id =#{id} and username =#{username} and password =#{password}
+    </delete>
+
+    <insert id="addUser" parameterType="com.zzy.model.User">
+        insert into user(username,password) values (#{username},#{password})
+    </insert>
+    
+    <select id="selectUser3" resultType="com.zzy.model.User" parameterType="java.util.Map">
+        <![CDATA[select * from user where name like #{n} and id<#{id}]]>
+    </select>
+
+    <select id="selectUser4" resultType="com.zzy.model.User" parameterType="com.zzy.model.User">
+        <![CDATA[select * from user where name like #{name} and id<#{id}]]>
+    </select>
+
+    <select id="selectUser5" resultType="com.zzy.model.User" parameterType="java.lang.String">
+        <![CDATA[select * from user where name like concat('%',#{name},'%')]]>
+    </select>
+
+
+
+</mapper>

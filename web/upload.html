@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+<!-- 文件上传
+method请求方式必须为post
+enctype修改为 multipart/form-data 使服务器接受form时对其数据进行标识
+（告诉服务器  form发送的是文件）
+ -->
+<form action="/upload" method="post" enctype="multipart/form-data">
+    姓名：<input type="text" name="user">
+    性别：  <input type="radio" name="sex" checked="checked" value="男">男 &nbsp;&nbsp;<input type="radio" name="sex"  value="女">女
+    选择文件：<input type="file" name="ufile"><br>
+    <input type="submit" >
+</form>
+</body>
+</html>
